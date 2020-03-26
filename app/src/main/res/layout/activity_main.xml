@@ -97,9 +97,9 @@
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:layout_weight="0.25"
-            android:background="@drawable/operator_selector"
+            android:background="@color/colorPrimary"
             android:text="/"
-            android:textColor="#ecf0f1"
+            android:textColor="@android:color/black"
             android:textSize="30sp" />
 
     </LinearLayout>
@@ -149,9 +149,9 @@
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:layout_weight="0.25"
-            android:background="@drawable/operator_selector"
+            android:background="@color/colorPrimary"
             android:text="-"
-            android:textColor="#ecf0f1"
+            android:textColor="@android:color/black"
             android:textSize="30sp" />
 
     </LinearLayout>
@@ -201,9 +201,9 @@
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:layout_weight="0.25"
-            android:background="@drawable/operator_selector"
+            android:background="@color/colorPrimary"
             android:text="x"
-            android:textColor="#ecf0f1"
+            android:textColor="@android:color/black"
             android:textSize="30sp" />
 
     </LinearLayout>
@@ -242,9 +242,9 @@
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:layout_weight="0.25"
-            android:background="@drawable/operator_selector"
-            android:text="%"
-            android:textColor="#ecf0f1"
+            android:background="@color/colorPrimary"
+            android:text=" ^ "
+            android:textColor="@android:color/black"
             android:textSize="30sp" />
 
         <Button
@@ -253,10 +253,10 @@
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:layout_weight="0.25"
-            android:background="@drawable/operator_selector"
+            android:background="@color/colorPrimary"
             android:onClick="onClick"
             android:text="+"
-            android:textColor="#ecf0f1"
+            android:textColor="@android:color/black"
             android:textSize="30sp" />
 
     </LinearLayout>

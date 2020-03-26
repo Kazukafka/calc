@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                     Division = false;
                 }
                 if (mRemainder) {
-                    edt1.setText(input1 % input2 + "");
+                    edt1.setText(Math.pow(input1, input2) + "");
                     mRemainder = false;
                 }
             }
