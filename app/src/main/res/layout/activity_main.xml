@@ -47,6 +47,7 @@
             android:layout_weight="0.25"
             android:background="@android:color/holo_green_dark"
             android:text="Convert-km/mi"
+            android:textColor="#ecf0f1"
             android:textSize="20sp" />
 
         <Button
