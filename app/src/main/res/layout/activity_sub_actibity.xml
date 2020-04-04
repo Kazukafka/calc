@@ -46,7 +46,7 @@
             android:layout_margin="1dp"
             android:layout_weight="0.25"
             android:background="@android:color/holo_orange_dark"
-            android:text="km →　mile"
+            android:text="km->mile"
             android:textColor="#ecf0f1"
             android:textSize="20sp" />
 
@@ -57,7 +57,7 @@
             android:layout_margin="1dp"
             android:layout_weight="0.25"
             android:background="@android:color/holo_orange_dark"
-            android:text="mile →　km"
+            android:text="mile->km"
             android:textColor="#ecf0f1"
             android:textSize="20sp" />
 
