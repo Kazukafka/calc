@@ -1,6 +1,8 @@
 package com.example.xxxholic;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     TextView edt1;
     boolean Addition, Subtract, Multiplication, Division, mRemainder, decimal;
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonAdd, buttonSub,
-            buttonMul, buttonDivision, buttonEqual, buttonDel, buttonDot, Remainder;
+            buttonMul, buttonDivision, buttonEqual, buttonDel, buttonDot, Remainder, sendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +39,17 @@ public class MainActivity extends AppCompatActivity {
         Remainder = (Button) findViewById(R.id.Remainder);
         buttonDel = (Button) findViewById(R.id.buttonDel);
         buttonEqual = (Button) findViewById(R.id.buttoneql);
+        sendButton = (Button) findViewById(R.id.send_button);
 
         edt1 = (TextView) findViewById(R.id.display);
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), SubActivity.class);
+                startActivity(intent);
+            }
+        });
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
