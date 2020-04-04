@@ -66,7 +66,7 @@ public class SubActivity extends AppCompatActivity {
                 if (edt1.getText().length() != 0) {
                     input1 = Float.parseFloat(edt1.getText() + "");
                     decimal = false;
-                    edt1.setText(input1 / 0.62137 + "km");
+                    edt1.setText(input1 / 0.62137 + " km");
                 }
             }
         });
