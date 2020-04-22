@@ -8,19 +8,40 @@
     android:orientation="vertical"
     tools:context="com.example.xxxholic.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.3"
-        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/display"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ecf0f1"
-            android:textSize="30sp" />
-    </LinearLayout>
+            android:id="@+id/edt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView1"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/ans"
+            android:layout_width="209dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/ts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timestamp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="24sp" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +67,7 @@
             android:layout_margin="1dp"
             android:layout_weight="0.25"
             android:background="@android:color/holo_green_dark"
-            android:text="Convert-km/mi"
+            android:text="Convert"
             android:textColor="#ecf0f1"
             android:textSize="20sp" />
 
@@ -271,6 +292,15 @@
             android:textSize="30sp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/dataBase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="See the History" />
 
 
 </LinearLayout>

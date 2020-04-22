@@ -1,25 +1,38 @@
 package com.example.xxxholic;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
 
     double input1 = 0, input2 = 0;
-    TextView edt1;
+    TextView edt1, ans, ts;
     boolean Addition, Subtract, Multiplication, Division, mRemainder, decimal;
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonAdd, buttonSub,
-            buttonMul, buttonDivision, buttonEqual, buttonDel, buttonDot, Remainder, sendButton;
+            buttonMul, buttonDivision, buttonEqual, buttonDel, buttonDot, Remainder, sendButton, detaBaseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyOpenHelper helper = new MyOpenHelper(this);
+        final SQLiteDatabase db = helper.getWritableDatabase();
+
+        final TextView ans = (TextView) findViewById(R.id.ans);
+        final TextView ts = (TextView) findViewById(R.id.ts);
+
+        detaBaseButton = (Button) findViewById(R.id.dataBase);
 
         button0 = (Button) findViewById(R.id.button0);
         button1 = (Button) findViewById(R.id.button1);
@@ -41,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         buttonEqual = (Button) findViewById(R.id.buttoneql);
         sendButton = (Button) findViewById(R.id.send_button);
 
-        edt1 = (TextView) findViewById(R.id.display);
+        edt1 = (TextView) findViewById(R.id.edt1);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,36 +196,97 @@ public class MainActivity extends AppCompatActivity {
         });
 
         buttonEqual.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
+
+
+
                 if (Addition || Subtract || Multiplication || Division || mRemainder) {
                     input2 = Float.parseFloat(edt1.getText() + "");
                 }
 
                 if (Addition) {
-
-                    edt1.setText(input1 + input2 + "");
+                    //edt1.setText(input1 + "+" + input2);
+                    edt1.setText("");
                     Addition = false;
+                    ans.setText((input1 + " + " + input2 ) + " = " + (input1 + input2) + "");
+                    long millis = System.currentTimeMillis();
+                    ts.setText(Long.toString(millis));
+
+                    String equation = ans.getText().toString();
+                    String TimeStamp = ts.getText().toString();
+
+                    ContentValues insertValues = new ContentValues();
+                    insertValues.put("equation", equation);
+                    insertValues.put("TimeStamp", TimeStamp);
+                    long id = db.insert("calcBB", equation, insertValues);
+
                 }
 
                 if (Subtract) {
-
-                    edt1.setText(input1 - input2 + "");
+                    edt1.setText("");
                     Subtract = false;
+                    ans.setText((input1 + " - " + input2 ) + " = " + (input1 - input2) + "");
+                    long millis = System.currentTimeMillis();
+                    ts.setText(Long.toString(millis));
+
+                    String equation = ans.getText().toString();
+                    String TimeStamp = ts.getText().toString();
+
+                    ContentValues insertValues = new ContentValues();
+                    insertValues.put("equation", equation);
+                    insertValues.put("TimeStamp", TimeStamp);
+                    long id = db.insert("calcBB", equation, insertValues);
+
                 }
 
                 if (Multiplication) {
-                    edt1.setText(input1 * input2 + "");
                     Multiplication = false;
+                    ans.setText((input1 + " * " + input2 ) + " = " + (input1 * input2) + "");
+                    long millis = System.currentTimeMillis();
+                    ts.setText(Long.toString(millis));
+
+                    String equation = ans.getText().toString();
+                    String TimeStamp = ts.getText().toString();
+
+                    ContentValues insertValues = new ContentValues();
+                    insertValues.put("equation", equation);
+                    insertValues.put("TimeStamp", TimeStamp);
+                    long id = db.insert("calcBB", equation, insertValues);
+
                 }
 
                 if (Division) {
-                    edt1.setText(input1 / input2 + "");
                     Division = false;
+                    ans.setText((input1 + " / " + input2 ) + " = " + (input1 / input2) + "");
+                    long millis = System.currentTimeMillis();
+                    ts.setText(Long.toString(millis));
+
+                    String equation = ans.getText().toString();
+                    String TimeStamp = ts.getText().toString();
+
+                    ContentValues insertValues = new ContentValues();
+                    insertValues.put("equation", equation);
+                    insertValues.put("TimeStamp", TimeStamp);
+                    long id = db.insert("calcBB", equation, insertValues);
+
                 }
                 if (mRemainder) {
                     edt1.setText(Math.pow(input1, input2) + "");
                     mRemainder = false;
+                    ans.setText((input1 + " ^ " + input2 ) + " = " + (Math.pow(input1, input2)) + "");
+                    long millis = System.currentTimeMillis();
+                    ts.setText(Long.toString(millis));
+
+                    String equation = ans.getText().toString();
+                    String TimeStamp = ts.getText().toString();
+
+                    ContentValues insertValues = new ContentValues();
+                    insertValues.put("equation", equation);
+                    insertValues.put("TimeStamp", TimeStamp);
+                    long id = db.insert("calcBB", equation, insertValues);
+
                 }
             }
         });
@@ -222,6 +297,8 @@ public class MainActivity extends AppCompatActivity {
                 edt1.setText("");
                 input1 = 0.0;
                 input2 = 0.0;
+                ans.setText("");
+                ts.setText("");
             }
         });
 
@@ -229,11 +306,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (decimal) {
-                    //do nothing or you can show the error
+
                 } else {
                     edt1.setText(edt1.getText() + ".");
                     decimal = true;
                 }
+
+            }
+        });
+
+        detaBaseButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent dbIntent = new Intent(MainActivity.this,
+                        ShowDataBase.class);
+                startActivity(dbIntent);
 
             }
         });
